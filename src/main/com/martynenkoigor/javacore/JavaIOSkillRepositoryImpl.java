@@ -17,7 +17,7 @@ public class JavaIOSkillRepositoryImpl implements SkillRepository {
         BufferedWriter bw = null;
         BufferedReader br = null;
         Long lastId = 0L;
-        Skill skill = new Skill(lastId, skillName);
+        Skill skill = null;
 
         try {
             if (!file.exists()) {
@@ -33,7 +33,8 @@ public class JavaIOSkillRepositoryImpl implements SkillRepository {
                     lastId = Long.parseLong(parts[0].trim());
                 }
             }
-            bw.write((lastId + 1) + ";" + skillName + '\n');
+            skill = new Skill(lastId + 1, skillName);
+            bw.write(skill.toString());
             bw.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -98,7 +99,7 @@ public class JavaIOSkillRepositoryImpl implements SkillRepository {
                 if (oldSkill.getId().equals(newSkill.getId())) {
                     oldSkill.setName(newSkill.getName());
                 }
-                bw.write(oldSkill.getId() + ";" + oldSkill.getName() + '\n');
+                bw.write(oldSkill.toString());
             }
             bw.flush();
         } catch (IOException e) {
@@ -195,7 +196,7 @@ public class JavaIOSkillRepositoryImpl implements SkillRepository {
         ss.deleteById(2l);
         List<Skill> skillList = ss.getAll();
         for(Skill skill1 : skillList) {
-            System.out.println(skill1);
+            System.out.print(skill1);
         }
     }
 }

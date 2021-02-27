@@ -27,6 +27,6 @@ public class Skill {
 
     @Override
     public String toString() {
-        return id + " " + name;
+        return id + ";" + name + '\n';
     }
 }
