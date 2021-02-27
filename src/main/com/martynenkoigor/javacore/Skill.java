@@ -1,7 +1,7 @@
 package com.martynenkoigor.javacore;
 
 public class Skill {
-    private long id;
+    private Long id;
     private String name;
 
     public Skill(long id, String name) {
@@ -9,7 +9,7 @@ public class Skill {
         this.name = name;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -17,7 +17,7 @@ public class Skill {
         this.id = id;
     }
 
-    public String getName() {
+    public  String getName() {
         return name;
     }
 
